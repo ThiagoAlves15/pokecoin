@@ -1,0 +1,15 @@
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+@import "rails_bootstrap_forms";
+@import "header";
+@import "alerts";
+@import "footer";
+
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  padding-bottom: 4rem;
+}
