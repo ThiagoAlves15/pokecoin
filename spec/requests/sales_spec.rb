@@ -1,12 +1,25 @@
 require 'rails_helper'
 
 RSpec.describe "/sales", type: :request do
+  before(:each) do
+    @user = create(:user)
+    sign_in @user
+  end
+
+  let(:pokemon) { create(:pokemon, user: @user) }
+
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+      from_user: @user,
+      pokemon: pokemon
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+      from_user: nil,
+      pokemon: nil
+    }
   }
 
   describe "GET /index" do
@@ -33,30 +46,30 @@ RSpec.describe "/sales", type: :request do
     end
   end
 
-  describe "POST /create" do
+  describe "POST /sales/create" do
     context "with valid parameters" do
       it "creates a new Sale" do
         expect {
-          post sales_url, params: { sale: valid_attributes }
+          post sales_create_path, params: { sale: valid_attributes, pokemon_id: pokemon.id }
         }.to change(Sale, :count).by(1)
       end
 
       it "redirects to the created sale" do
-        post sales_url, params: { sale: valid_attributes }
-        expect(response).to redirect_to(sale_url(Sale.last))
+        post sales_create_path, params: { sale: valid_attributes, pokemon_id: pokemon.id }
+        expect(response).to redirect_to(pokemons_url)
       end
     end
 
     context "with invalid parameters" do
       it "does not create a new Sale" do
         expect {
-          post sales_url, params: { sale: invalid_attributes }
+          post sales_create_path, params: { sale: invalid_attributes }
         }.to change(Sale, :count).by(0)
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
-        post sales_url, params: { sale: invalid_attributes }
-        expect(response).to be_successful
+        post sales_create_path, params: { sale: invalid_attributes }
+        expect(response).to have_http_status(:unprocessable_entity)
       end
     end
   end
@@ -86,7 +99,7 @@ RSpec.describe "/sales", type: :request do
       it "renders a successful response (i.e. to display the 'edit' template)" do
         sale = Sale.create! valid_attributes
         patch sale_url(sale), params: { sale: invalid_attributes }
-        expect(response).to be_successful
+        expect(response).to redirect_to(sales_path)
       end
     end
   end

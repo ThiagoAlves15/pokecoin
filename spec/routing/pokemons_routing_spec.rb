@@ -13,9 +13,5 @@ RSpec.describe PokemonsController, type: :routing do
     it "routes to #create" do
       expect(post: "/pokemons").to route_to("pokemons#create")
     end
-
-    it "routes to #destroy" do
-      expect(delete: "/pokemons/1").to route_to("pokemons#destroy", id: "1")
-    end
   end
 end

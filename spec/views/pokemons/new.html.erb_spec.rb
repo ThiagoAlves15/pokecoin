@@ -1,27 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe "pokemons/new", type: :view do
+  let(:pokemon_one) { create(:pokemon) }
+
   before(:each) do
-    assign(:pokemon, Pokemon.new(
-      name: "MyString",
-      base_experience: 1,
-      sprite_url: "MyString",
-      user: nil
-    ))
+    @user = create(:user)
+    sign_in @user
+
+    assign(:pokemon, pokemon_one)
   end
 
-  it "renders new pokemon form" do
+  xit "renders new pokemon form" do
     render
 
     assert_select "form[action=?][method=?]", pokemons_path, "post" do
-
       assert_select "input[name=?]", "pokemon[name]"
-
-      assert_select "input[name=?]", "pokemon[base_experience]"
-
-      assert_select "input[name=?]", "pokemon[sprite_url]"
-
-      assert_select "input[name=?]", "pokemon[user_id]"
     end
   end
 end

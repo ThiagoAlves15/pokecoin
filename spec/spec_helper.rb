@@ -80,4 +80,27 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+  config.before(:each) do
+    rate_response = {
+      rate: "3260.3514321215056208129867667"
+    }
+
+    pokemon_response = {
+      name: 'bulbasaur',
+      base_experience: '123',
+      sprites: {
+        front_default: 'test'
+      }
+    }
+
+    stub_request(:any, "https://pokeapi.co/api/v2/pokemon/bulbasaur/").
+    to_return(status: 200, body: pokemon_response.to_json)
+
+    stub_request(:any, "https://pokeapi.co/api/v2/pokemon/teste/").
+    to_return(status: 404)
+
+    stub_request(:get, "https://rest.coinapi.io/v1/exchangerate/BTC/USD").
+    to_return(status: 200, body: rate_response.to_json)
+  end
 end
