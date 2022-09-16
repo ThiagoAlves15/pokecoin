@@ -37,36 +37,12 @@ class PokemonsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /pokemons/1 or /pokemons/1.json
-  # def update
-  #   respond_to do |format|
-  #     if @pokemon.update(pokemon_params)
-  #       format.html { redirect_to pokemon_url(@pokemon), notice: "Pokemon was successfully updated." }
-  #       format.json { render :show, status: :ok, location: @pokemon }
-  #     else
-  #       format.html { render :edit, status: :unprocessable_entity }
-  #       format.json { render json: @pokemon.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-
-  # DELETE /pokemons/1 or /pokemons/1.json
-  def destroy
-    @pokemon.destroy
-
-    respond_to do |format|
-      format.html { redirect_to pokemons_url, notice: "Pokemon was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
-
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_pokemon
       @pokemon = Pokemon.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def pokemon_params
       params.require(:pokemon).permit(:name, :user_id)
     end

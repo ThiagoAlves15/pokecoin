@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :rate do
-    rate { "9.99" }
+    rate { Faker::Number.within(range: 0.000001..0.01) }
   end
 end

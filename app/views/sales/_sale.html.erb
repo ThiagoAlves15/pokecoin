@@ -23,7 +23,7 @@
       </p>
     </div>
 
-    <% if buy && sale.from_user_id != current_user.id %>
+    <% if buy && current_user && sale.from_user_id != current_user.id %>
       <div class="card-footer">
         <%= button_to 'Buy', sale_path(sale), method: :put, class: "btn btn-primary w-100" %>
       </div>

@@ -1,3 +1,9 @@
-<a href="#" class="header__avatar--<%= type %>" data-bs-toggle="dropdown" aria-expanded="false">
-  <%= image_tag "avatar_placeholder.png", class: "rounded-circle", size: "48", alt: "Profile picture" %>
-</a>
+<% if user_signed_in? %>
+  <a href="#" class="header__avatar--<%= type %>" data-bs-toggle="dropdown" aria-expanded="false">
+    <%= image_tag "poketrainer.png", class: "rounded-circle", size: "48", alt: "Logged in profile picture" %>
+  </a>
+<% else %>
+  <a href="#" class="header__avatar--<%= type %>" data-bs-toggle="dropdown" aria-expanded="false">
+    <%= image_tag "avatar_placeholder.png", class: "rounded-circle", size: "48", alt: "Not logged in profile picture" %>
+  </a>
+<% end %>

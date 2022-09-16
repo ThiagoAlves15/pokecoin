@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  resources :pokemons, only: [:index, :new, :create, :destroy]
+  resources :pokemons, only: [:index, :new, :create]
   resources :sales, only: [:index, :update, :destroy]
 
   post 'sales/create', action: :create, controller: 'sales'

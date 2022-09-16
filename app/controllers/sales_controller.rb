@@ -1,5 +1,5 @@
 class SalesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: %i[ acquisitions sales create update destroy ]
   before_action :set_sale, only: %i[ update destroy ]
 
   # GET /sales or /sales.json
