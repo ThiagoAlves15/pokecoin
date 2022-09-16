@@ -1,6 +1,10 @@
 <div class="cointainer d-flex flex-wrap align-items-center justify-content-center m-5">
   <div class="col-8">
     <p>cotação satoshi para USD</p>
-    <p>ultimas vendas</p>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4 mb-4">
+      <%= render "offers_list", resource: @last_offers %>
+      <%= render "sales_list", resource: @last_sales %>
+    </div>
   </div>
 </div>

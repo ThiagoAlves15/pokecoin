@@ -1,7 +1,0 @@
-<%= bootstrap_form_with(model: sale) do |f| %>
-  <%= render "layouts/error_messages", resource: sale %>
-
-  <%= f.text_field :name, placeholder: "Pokemon name", autocomplete: "name" %>
-
-  <%= f.submit class: "btn btn-primary btn-lg w-100" %>
-<% end %>

@@ -10,6 +10,7 @@
     </div>
 
     <div class="card-footer">
+      <%= button_to 'Put for sale', sales_create_path(pokemon_id: pokemon.id), method: :post, class: "btn btn-outline-primary w-100" %>
     </div>
   </div>
 </div>

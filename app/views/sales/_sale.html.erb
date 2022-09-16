@@ -1,2 +1,38 @@
-<div id="<%= dom_id sale %>">
+<div class="col">
+  <div class="card h-100">
+    <%= image_tag sale.pokemon.sprite_url, class: "card-img-top", alt: "Pokemon front picture" %>
+
+    <div class="card-body">
+      <p class="card-text">
+        <strong>Base experience:</strong>
+        <%= sale.pokemon.base_experience %>
+      </p>
+    </div>
+
+    <div class="card-body">
+      <p class="card-text">
+        <strong>From user:</strong>
+        <%= sale.from_user_id %>
+      </p>
+    </div>
+
+    <div class="card-body">
+      <p class="card-text">
+        <strong>To user:</strong>
+        <%= sale.to_user_id %>
+      </p>
+    </div>
+
+    <% if buy %>
+      <div class="card-footer">
+        <%= button_to 'Buy', sale_path(sale), method: :put, class: "btn btn-outline-danger w-100" %>
+      </div>
+    <% end %>
+
+    <% if remove %>
+      <div class="card-footer">
+        <%= button_to 'Remove from sale', sale, data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-outline-danger w-100" %>
+      </div>
+    <% end %>
+  </div>
 </div>

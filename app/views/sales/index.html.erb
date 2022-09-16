@@ -1,14 +1,15 @@
-<p style="color: green"><%= notice %></p>
+<div class="cointainer d-flex flex-wrap align-items-center justify-content-center m-5">
+  <div class="col-md-10">
+    <h2 class="mb-4">
+      Offers
+    </h2>
 
-<h1>Sales</h1>
-
-<div id="sales">
-  <% @sales.each do |sale| %>
-    <%= render sale %>
-    <p>
-      <%= link_to "Show this sale", sale %>
-    </p>
-  <% end %>
+    <div class="mb-4">
+      <div class="row row-cols-1 row-cols-md-4 g-4 mb-4">
+        <% @sales.each do |sale| %>
+          <%= render sale, buy: true, remove: false %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
-
-<%= link_to "New sale", new_sale_path %>
