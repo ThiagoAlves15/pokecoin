@@ -1,0 +1,13 @@
+<div class="cointainer">
+  <h2 class="mb-4">Last exchange rates</h2>
+
+  <ul class="list-group">
+    <% last_rates.each do |rate| %>
+      <li class="list-group-item">
+
+        <strong>Value: </strong><%= number_to_currency(rate.rate, precision: 8) %>
+        <strong>Time: </strong><%= rate.created_at.strftime("%d/%m/%Y at %H:%M") %>
+      </li>
+    <% end %>
+  </ul>
+</div>

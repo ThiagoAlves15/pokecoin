@@ -4,7 +4,7 @@ class SalesController < ApplicationController
 
   # GET /sales or /sales.json
   def index
-    @sales = Sale.where(to_user_id: nil).where.not(from_user_id: current_user.id).all
+    @sales = Sale.where(to_user_id: nil).all
   end
 
   def acquisitions

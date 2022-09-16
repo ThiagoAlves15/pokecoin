@@ -2,10 +2,11 @@
   <h2 class="mb-4">Latest offers</h2>
 
   <ul class="list-group">
-    <% @last_sales.each do |sale| %>
+    <% offers.each do |offer| %>
       <li class="list-group-item">
-        <strong>Name: </strong><%= sale.pokemon.name %>
-        <strong>Value: </strong><%= sale.pokemon.base_experience %>
+        <strong>Name: </strong><%= offer.pokemon.name %>
+        <strong>Value: </strong><%= offer.pokemon.base_experience %>
+        <strong>From: </strong><%= offer.from_user_id %>
       </li>
     <% end %>
   </ul>

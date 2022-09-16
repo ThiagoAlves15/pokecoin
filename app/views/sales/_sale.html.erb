@@ -23,15 +23,15 @@
       </p>
     </div>
 
-    <% if buy %>
+    <% if buy && sale.from_user_id != current_user.id %>
       <div class="card-footer">
-        <%= button_to 'Buy', sale_path(sale), method: :put, class: "btn btn-outline-danger w-100" %>
+        <%= button_to 'Buy', sale_path(sale), method: :put, class: "btn btn-primary w-100" %>
       </div>
     <% end %>
 
-    <% if remove %>
+    <% if remove && !sale.to_user_id %>
       <div class="card-footer">
-        <%= button_to 'Remove from sale', sale, data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-outline-danger w-100" %>
+        <%= button_to 'Remove from sale', sale, data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger w-100" %>
       </div>
     <% end %>
   </div>

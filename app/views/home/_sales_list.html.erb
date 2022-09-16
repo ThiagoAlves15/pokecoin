@@ -2,7 +2,7 @@
   <h2 class="mb-4">Latest sales</h2>
 
   <ul class="list-group">
-    <% @last_sales.each do |sale| %>
+    <% sales.each do |sale| %>
       <li class="list-group-item">
         <strong>Name: </strong><%= sale.pokemon.name %>
         <strong>Value: </strong><%= sale.pokemon.base_experience %>

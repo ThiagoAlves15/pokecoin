@@ -7,10 +7,17 @@
         <strong>Base experience:</strong>
         <%= pokemon.base_experience %>
       </p>
+
+      <p class="card-text">
+        <strong>Current value:</strong>
+        <%= number_to_currency(pokemon.current_value, precision: 8) %>
+      </p>
     </div>
 
-    <div class="card-footer">
-      <%= button_to 'Put for sale', sales_create_path(pokemon_id: pokemon.id), method: :post, class: "btn btn-outline-primary w-100" %>
-    </div>
+    <% if !pokemon.is_for_sale %>
+      <div class="card-footer">
+        <%= button_to 'Put for sale', sales_create_path(pokemon_id: pokemon.id), method: :post, class: "btn btn-outline-primary w-100" %>
+      </div>
+    <% end %>
   </div>
 </div>

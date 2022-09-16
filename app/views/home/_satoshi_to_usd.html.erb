@@ -1,0 +1,17 @@
+<div class="cointainer">
+  <h2 class="mb-4">Satoshi to USD</h2>
+  <h2 class="mb-4"></h2>
+
+  <h4 class="mb-4">
+    <strong>Exchange rate:</strong>
+    <%= number_to_currency(last_sat_usd.rate, precision: 8) %>
+  </h4>
+
+  <% if user_signed_in? %>
+    <h4 class="mb-4">
+      <strong>Your wallet total:</strong>
+      <%= number_to_currency(total_wallet_value, precision: 8) %>
+    </h4>
+  <% end %>
+
+</div>
