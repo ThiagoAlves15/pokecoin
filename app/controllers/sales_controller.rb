@@ -58,7 +58,7 @@ class SalesController < ApplicationController
     @sale.destroy
 
     respond_to do |format|
-      format.html { redirect_to sales_url, notice: "Sale was successfully destroyed." }
+      format.html { redirect_to user_sales_path, notice: "Sale was successfully destroyed." }
       format.json { head :no_content }
     end
   end
