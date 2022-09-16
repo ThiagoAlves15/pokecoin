@@ -1,21 +1,24 @@
-<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-danger">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <%= link_to 'PokeCoin', root_path, class: "navbar-brand" %>
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "pokeball.png", class: "rounded-circle", size: "48", alt: "Profile picture" %>
+      <strong>PokeCoin</strong>
+    <% end %>
 
     <%= render 'layouts/avatar', type: "mobile" %>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <li class="nav-item mt-2 mb-2">
-          <%= link_to "Pokemons", pokemons_path, class: "nav-link btn btn-link" %>
+          <%= link_to "Pokemons", pokemons_path, class: "nav-link btn btn-link text-white" %>
         </li>
 
         <li class="nav-item mt-2 mb-2">
-          <%= link_to "Sales", sales_path, class: "nav-link btn btn-link" %>
+          <%= link_to "Trades", sales_path, class: "nav-link btn btn-link text-white" %>
         </li>
       </ul>
     </div>
@@ -32,7 +35,7 @@
             <%= link_to 'Pokemons', pokemons_path, class: "dropdown-item" %>
           </li>
           <li>
-            <%= link_to 'Sales', sales_path, class: "dropdown-item" %>
+            <%= link_to 'Trades', sales_path, class: "dropdown-item" %>
           </li>
           <li><hr class="dropdown-divider"></li>
           <li>

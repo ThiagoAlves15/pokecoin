@@ -1,14 +1,15 @@
-<div class="mb-4 mt-4">
-  <div class="card">
-    <h5 class="card-header"><%= pokemon.name %></h5>
-
-    <%= image_tag pokemon.sprite_url, class: "card-img-top", size: "100", alt: "Pokemon front picture" %>
+<div class="col">
+  <div class="card h-100">
+    <%= image_tag pokemon.sprite_url, class: "card-img-top", alt: "Pokemon front picture" %>
 
     <div class="card-body">
       <p class="card-text">
         <strong>Base experience:</strong>
         <%= pokemon.base_experience %>
       </p>
+    </div>
+
+    <div class="card-footer">
     </div>
   </div>
 </div>
