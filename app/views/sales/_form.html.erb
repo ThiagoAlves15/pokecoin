@@ -1,17 +1,7 @@
-<%= form_with(model: sale) do |form| %>
-  <% if sale.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(sale.errors.count, "error") %> prohibited this sale from being saved:</h2>
+<%= bootstrap_form_with(model: sale) do |f| %>
+  <%= render "layouts/error_messages", resource: sale %>
 
-      <ul>
-        <% sale.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.text_field :name, placeholder: "Pokemon name", autocomplete: "name" %>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  <%= f.submit class: "btn btn-primary btn-lg w-100" %>
 <% end %>

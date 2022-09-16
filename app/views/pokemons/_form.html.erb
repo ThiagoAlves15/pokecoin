@@ -1,37 +1,7 @@
-<%= form_with(model: pokemon) do |form| %>
-  <% if pokemon.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(pokemon.errors.count, "error") %> prohibited this pokemon from being saved:</h2>
+<%= bootstrap_form_with(model: pokemon) do |f| %>
+  <%= render "layouts/error_messages", resource: pokemon %>
 
-      <ul>
-        <% pokemon.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.text_field :name, placeholder: "Pokemon name", autocomplete: "name" %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :base_experience, style: "display: block" %>
-    <%= form.number_field :base_experience %>
-  </div>
-
-  <div>
-    <%= form.label :sprite_url, style: "display: block" %>
-    <%= form.text_field :sprite_url %>
-  </div>
-
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+  <%= f.submit class: "btn btn-primary btn-lg w-100" %>
 <% end %>

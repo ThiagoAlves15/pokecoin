@@ -1,14 +1,15 @@
-<p style="color: green"><%= notice %></p>
+<div class="cointainer d-flex flex-wrap align-items-center justify-content-center m-5">
+  <div class="col-md-8">
+    <h2 class="mb-4">
+      Pokemons
+    </h2>
 
-<h1>Pokemons</h1>
+    <div class="mb-4">
+      <%= link_to 'New pokemon', new_pokemon_path, class: "btn btn-outline-primary" %>
 
-<div id="pokemons">
-  <% @pokemons.each do |pokemon| %>
-    <%= render pokemon %>
-    <p>
-      <%= link_to "Show this pokemon", pokemon %>
-    </p>
-  <% end %>
+      <% @pokemons.each do |pokemon| %>
+        <%= render pokemon %>
+      <% end %>
+    </div>
+  </div>
 </div>
-
-<%= link_to "New pokemon", new_pokemon_path %>

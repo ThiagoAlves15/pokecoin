@@ -1,22 +1,14 @@
-<div id="<%= dom_id pokemon %>">
-  <p>
-    <strong>Name:</strong>
-    <%= pokemon.name %>
-  </p>
+<div class="mb-4 mt-4">
+  <div class="card">
+    <h5 class="card-header"><%= pokemon.name %></h5>
 
-  <p>
-    <strong>Base experience:</strong>
-    <%= pokemon.base_experience %>
-  </p>
+    <%= image_tag pokemon.sprite_url, class: "card-img-top", size: "100", alt: "Pokemon front picture" %>
 
-  <p>
-    <strong>Sprite url:</strong>
-    <%= pokemon.sprite_url %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= pokemon.user_id %>
-  </p>
-
+    <div class="card-body">
+      <p class="card-text">
+        <strong>Base experience:</strong>
+        <%= pokemon.base_experience %>
+      </p>
+    </div>
+  </div>
 </div>
