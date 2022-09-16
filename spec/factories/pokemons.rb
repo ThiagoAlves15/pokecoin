@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :pokemon do
-    name { "MyString" }
-    base_experience { 1 }
-    sprite_url { "MyString" }
-    user { nil }
+    name { Faker::Games::Pokemon.name }
+    base_experience { Faker::Number.between(from: 10, to: 1000) }
+    sprite_url { Faker::Avatar.image }
+    user
   end
 end
